@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Facility, Hostname, Method, Planet
+
+admin.site.register((Method, Hostname, Facility, Planet))
