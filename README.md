@@ -1,5 +1,23 @@
 # NASA Exoplanet Query
 
+**Create the virtual environment**
+
+```
+python3 -m venv venv          
+```
+
+**Install the requirements**
+
+```
+pip install requirements.txt
+```
+
+**Run the project**
+
+```
+python manage.py runserver localhost:8000
+```
+
 **Tier:** 3-Advanced
 
 Since 1992 over 4,000 exoplanets have been discovered outside our solar
