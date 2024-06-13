@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Exoplanets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon"
+          type="image/png"
+          href="{% static 'img/favicon.ico' %}" />
+    <link rel="stylesheet"
+          type="text/css"
+          media="screen"
+          href="{% static 'css/planets.css' %}" />
+    <script src="{% static 'js/main.js' %}"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <div class="header">
+          <h2 class="animation a1">Exoplanets Query</h2>
+        </div>
+        <form action="{% url 'search_planets' %}" method="get" id="form">
+          <div class="form">
+            <select class="form-field animation a3"
+                    name="year_of_discovery"
+                    id="year_of_discovery"
+                    onchange="toggle(this)">
+              <option value="" disabled selected>Year of discovery</option>
+              {% for year in years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
+            </select>
+            <select class="form-field animation a3"
+                    name="discovery_method"
+                    id="discovery_method"
+                    onchange="toggle(this)">
+              <option value="" disabled selected>Discovery method</option>
+              {% for method in methods %}<option value="{{ method }}">{{ method }}</option>{% endfor %}
+            </select>
+            <select class="form-field animation a3"
+                    name="hostname"
+                    id="hostname"
+                    onchange="toggle(this)">
+              <option value="" disabled selected>Hostname</option>
+              {% for hostname in hostnames %}<option value="{{ hostname }}">{{ hostname }}</option>{% endfor %}
+            </select>
+            <select class="form-field animation a3"
+                    name="discovery_facility"
+                    id="discovery_facility"
+                    onchange="toggle(this)">
+              <option value="" disabled selected>Discovery facility</option>
+              {% for facility in facilities %}<option value="{{ facility }}">{{ facility }}</option>{% endfor %}
+            </select>
+            <button id="btnSearch" class="animation a6" disabled>Search</button>
+            <button class="animation a6" onclick="blockSearch()" type="reset">Clear</button>
+          </div>
+        </form>
+      </div>
+      <div class="right"></div>
+    </div>
+  </body>
+</html>
